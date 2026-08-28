@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pitstop Teivo — Ulkomainosnäyttö</title>
+  <meta name="description" content="Varaa mainosaikaa Pitstop Teivon LED-näytöltä. Arvioitu valmis 1.10.2026. />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Teko:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#top">Ylöjärven Autohuolto Oy</a>
+    <nav class="nav" aria-label="Päänavigaatio">
+      <a href="#buy">Osta</a>
+      <a href="#service">Palvelu</a>
+      <a href="#contact">Yhteystiedot</a>
+    </nav>
+    <a class="nav-cta" href="#buy">Varaa tästä!</a>
+  </header>
+
+  <main id="top">
+    <!-- 1. Landing -->
+    <section class="hero" aria-label="Etusivu">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/highway-screen-hero.png" alt="" class="hero-image" />
+        <div class="hero-veil"></div>
+      </div>
+      <div class="hero-content">
+        <p class="brand-mark"></p>
+        <h1>Sinun mainoksesi. Teivon tien varressa.</h1>
+        <p class="hero-lead">Näyttö arvioidaan valmiiksi <strong>1.10.2026</strong> — Varaa jo nyt!</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#buy">Varaa</a>
+          <a class="btn btn-ghost" href="#service">Näin se toimii</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Buying interface -->
+    <section class="section buy" id="buy" aria-label="Osta mainosaikaa">
+      <div class="section-intro">
+        <p class="eyebrow">Klikkaa + osta</p>
+        <h2>Varaa nyt. Näkyviin 1.10.2026.</h2>
+        <p class="section-lead">Mainoksesi pyörii joka minuutti — valitse 5, 10 tai 15 sekuntia. Aikaiset varaajat saavat ison alennuksen ennen avausta.</p>
+      </div>
+
+      <div class="buy-panel" role="group" aria-label="Mainosajan varaus">
+        <div class="buy-options">
+          <p class="early-bird-line">Aikaisen varaajan etu · noin 20 % pois listahinnoista · voimassa kunnes näyttö on valmis</p>
+          <p class="field-label">Mainoksen pituus · joka minuutti</p>
+          <div class="duration-grid" role="radiogroup" aria-label="Mainosajan pituus">
+            <button type="button" class="duration-card" data-seconds="5" data-price="49" data-regular="99" aria-pressed="false">
+              <span class="duration-time">5 s</span>
+              <span class="duration-price">63 €<s> €</s> 49 €</span>
+              <span class="duration-note">/ vrk</span>
+            </button>
+            <button type="button" class="duration-card is-selected" data-seconds="10" data-price="79" data-regular="159" aria-pressed="true">
+              <span class="duration-time">10 s</span>
+              <span class="duration-price"><s>99 €</s> 79 €</span>
+              <span class="duration-note">/ vrk · suositus</span>
+            </button>
+            <button type="button" class="duration-card" data-seconds="15" data-price="109" data-regular="219" aria-pressed="false">
+              <span class="duration-time">15 s</span>
+              <span class="duration-price"><s>137 €</s> 109 €</span>
+              <span class="duration-note">/ vrk</span>
+            </button>
+          </div>
+          <p class="slot-explain">Esimerkki: 10 s tarkoittaa, että mainoksesi näkyy 10 sekuntia joka minuutti, koko päivän.</p>
+          <p class="custom-slot">Tarvitsetko muun pituuden tai aikataulun? <a href="#contact">Ota yhteyttä</a>.</p>
+
+          <label class="field">
+            <span class="field-label">Toivottu aloituspäivä (alkaen 1.10.2026)</span>
+            <input type="date" id="start-date" name="start-date" min="2026-10-01" value="2026-10-01" />
+          </label>
+
+          <label class="field">
+            <span class="field-label">Mainosmateriaalin linkki tai kuvaus</span>
+            <input type="text" id="creative" name="creative" placeholder="Linkki aineistoon tai lyhyt kuvaus" />
+          </label>
+        </div>
+
+        <aside class="buy-summary">
+          <p class="summary-label">Varaa tästä!</p>
+          <p class="summary-screen">Pitstop Teivo LED</p>
+          <dl class="summary-rows">
+            <div>
+              <dt>Aikaikkuna</dt>
+              <dd id="summary-duration">10 s / min</dd>
+            </div>
+            <div class="summary-total">
+              <dt>Hinta 0% ALV</dt>
+              <dd id="summary-total">79 € / vrk</dd>
+            </div>
+          </dl>
+          <button type="button" class="btn btn-primary btn-buy" id="buy-button">
+            Varaa aikasi!
+          </button>
+          <p class="buy-note">Esikatselu — maksua ei ole vielä kytketty.</p>
+          <p class="buy-confirm" id="buy-confirm" hidden>Kiitos. Vahvistamme sähköpostilla.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 3. Service information -->
+    <section class="section service" id="service" aria-label="Palvelun tiedot">
+      <div class="section-intro">
+        <p class="eyebrow">Palvelu</p>
+        <h2>Näyttö, jota ei voi olla huomaamatta.</h2>
+        <p class="section-lead">Iso LED-näyttö nousee Pitstop Teivon olemassa olevaan telineeseen tien varteen. Arvioitu valmis <strong>1.10.2026</strong>. Varaa ajoissa ja säästä.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-block">
+          <h3>Näyttö</h3>
+          <p>Ulkokäyttöön tarkoitettu LED Pitstop Teivolla. Mainoksesi pyörii joka minuutti ostamassasi aikaikkunassa.</p>
+        </article>
+        <article class="service-block">
+          <h3>Yksinkertainen hinnoittelu</h3>
+          <p>5, 10 tai 15 sekuntia mainostasi joka minuutti. Aikaiset varaajat saavat 20 % pois vuorokausihinnoista ennen avausta. Kysyttävää? Ota yhteyttä.</p>
+        </article>
+        <article class="service-block">
+          <h3>Näin varaus etenee</h3>
+          <p>Valitse pituus, aloituspäivä 1.10.2026 alkaen, toimita aineisto ja varaa.</p>
+        </article>
+        <article class="service-block">
+          <h3>Mitä sinulta tarvitaan</h3>
+          <p>Aineisto koossa <strong>727 × 582 px</strong> alla olevien ohjeiden mukaan.</p>
+        </article>
+      </div>
+
+      <div class="guidelines">
+        <div class="guidelines-intro">
+          <h3>Ulkomainosnäytön sisältöohjeet</h3>
+          <p>Valmistele aineisto Pitstop Teivon LED-näytölle. Alla tiedostovaatimukset ja näytön tarkka resoluutio.</p>
+        </div>
+
+        <div class="guidelines-block">
+          <h4>Tiedostomuoto</h4>
+          <dl class="guidelines-list">
+            <div>
+              <dt>Still-kuvat</dt>
+              <dd>JPG tai PNG</dd>
+            </div>
+            <div>
+              <dt>Video</dt>
+              <dd>MP4 tai MOV, H.264</dd>
+            </div>
+            <div>
+              <dt>Max. tiedostokoko</dt>
+              <dd>50 Mt</dd>
+            </div>
+            <div>
+              <dt>Ääni</dt>
+              <dd>Ei — tienvarsinäytöt ovat mykkiä</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="guidelines-block">
+          <h4>Näyttö ja resoluutio</h4>
+          <dl class="guidelines-list">
+            <div>
+              <dt>Näytön koko</dt>
+              <dd>4,8 × 3,84 m</dd>
+            </div>
+            <div>
+              <dt>Pikseliväli</dt>
+              <dd>6,6 mm</dd>
+            </div>
+            <div>
+              <dt>Tarkka resoluutio</dt>
+              <dd>727 × 582 px</dd>
+            </div>
+            <div>
+              <dt>Kuvasuhde</dt>
+              <dd>~5:4 vaaka (727:582)</dd>
+            </div>
+          </dl>
+          <p class="guidelines-note">Vie stillit ja video koossa <strong>727 × 582 pikseliä</strong>. Älä käytä Full HD 1920 × 1080 -kokoa.</p>
+        </div>
+
+        <div class="guidelines-block">
+          <h4>Näyttöaika</h4>
+          <dl class="guidelines-list">
+            <div>
+              <dt>Vakiopituus</dt>
+              <dd>10 sekuntia (myös 5 tai 15 s)</dd>
+            </div>
+            <div>
+              <dt>Kuvanopeus</dt>
+              <dd>30 fps</dd>
+            </div>
+            <div>
+              <dt>Toisto</dt>
+              <dd>Videot pyörivät automaattisesti — tee alku- ja loppubit pehmeiksi</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="guidelines-block">
+          <h4>Vinkkejä ulkomainontaan</h4>
+          <p class="guidelines-copy">Autoilijalla on usein vain 3–5 sekuntia viestillesi.</p>
+          <ul class="guidelines-tips">
+            <li>Pidä teksti alle 7 sanassa — lihavoitu, paksu sans-serif-fontti.</li>
+            <li>Kova kontrasti: tumma tausta ja kirkas teksti, tai vahvat värit. Vältä vaaleanharmaata ja pastellisävyjä.</li>
+            <li>Turva-alue: jätä noin 5 % marginaali reunoihin, ettei kehys leikkaa logoja tai tekstiä.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Contact -->
+    <section class="section contact" id="contact" aria-label="Yhteystiedot">
+      <div class="section-intro">
+        <p class="eyebrow">Yhteystiedot</p>
+        <h2>Jäikö kysyttävää?</h2>
+        <p class="section-lead">Tarvitsetko muun pituuden, oman aikaikkunan tai räätälöidyn ratkaisun? Ota yhteyttä.</p>
+      </div>
+
+      <div class="contact-layout">
+        <address class="contact-details">
+          <p>
+            <span class="contact-label">Yritys</span>
+            <span>Ylöjärven Autohuolto Oy</span>
+          </p>
+          <p>
+            <span class="contact-label">Y-tunnus</span>
+            <span>3637127-6</span>
+          </p>
+          <p>
+            <span class="contact-label">Osoite</span>
+            <span>Vaasantie 138, 33470 Ylöjärvi</span>
+          </p>
+          <p>
+            <span class="contact-label">Näyttö</span>
+            <span>Pitstop Teivo · Vaasantie 138</span>
+          </p>
+          <p>
+            <span class="contact-label">Arvioitu valmis</span>
+            <span>1.10.2026</span>
+          </p>
+        </address>
+
+        <form class="contact-form" action="#" method="get" onsubmit="return false;">
+          <label class="field">
+            <span class="field-label">Nimi</span>
+            <input type="text" name="name" placeholder="Nimesi" />
+          </label>
+          <label class="field">
+            <span class="field-label">Sähköposti</span>
+            <input type="email" name="email" placeholder="sinä@yritys.fi" />
+          </label>
+          <label class="field">
+            <span class="field-label">Viesti</span>
+            <textarea name="message" rows="4" placeholder="Oma pituus, aikaikkuna, tekniset kysymykset…"></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary" id="contact-submit">Lähetä viesti</button>
+          <p class="buy-note">Lomake on vielä staattinen — ota yhteyttä Ylöjärven Autohuolto Oy:hyn.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-brand">PITSTOP TEIVO</p>
+    <p class="footer-copy">Ylöjärven Autohuolto Oy · Vaasantie 138, Ylöjärvi · © 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
