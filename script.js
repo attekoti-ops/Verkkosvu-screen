@@ -2,7 +2,6 @@
   const durationButtons = document.querySelectorAll(".duration-card");
   const summaryDuration = document.getElementById("summary-duration");
   const summaryTotal = document.getElementById("summary-total");
-  const summaryRegular = document.getElementById("summary-regular");
   const buyButton = document.getElementById("buy-button");
   const buyConfirm = document.getElementById("buy-confirm");
   const startDate = document.getElementById("start-date");
@@ -25,11 +24,9 @@
 
       const seconds = Number(button.dataset.seconds);
       const price = Number(button.dataset.price);
-      const regular = Number(button.dataset.regular);
 
       if (summaryDuration) summaryDuration.textContent = `${seconds} s / min`;
       if (summaryTotal) summaryTotal.textContent = `${price} € / vrk`;
-      if (summaryRegular) summaryRegular.textContent = `${regular} € / vrk`;
     });
   });
 
